@@ -269,8 +269,23 @@ Updates: `UPDATE Rewaya SET data_latest_version = 1 WHERE rewayaId = 3`.
   and run gradle custom build to generate the required APKs.
 
 #### 8.3 Windows
+* Add Recitation Steps:
+  - Add SQL script to `Mohafez\Mohafez.Shared\Assets\UpgradeScripts` with name `upgrade<Increment_Number>` .
+  - Add SQL statements like 
+   `(insert into rewaya (enabled, origin_id, rewayaId, name, name_en, mediaType) values(1, 3, 37, 'حفص عن عاصم (تجويد)', 'Hafss an Assem     (Tajweed)', 1);)`.
+  - Make sure that you set `(enabled,mediaType)` fields as `(enabled=1 ,mediaType=1)`.
+  - Open project using visual studio 2015 then open  `'Mohafez\Mohafez.Windows\Package.appxmanifest'` from Packaging tab increment database   version:`Major:Minor:Build:Revision`.
+  - Also open  `'Mohafez\Mohafez.WindowsPhone\Package.appxmanifest'` from Packaging tab increment database version:  
+    `Major:Minor:Build:Revision` .
 
-TODO
+* Updating Recitation Steps:
+  - Add SQL script to `'Mohafez\Mohafez.Shared\Assets\UpgradeScripts'` with name `upgrade<Increment_Number>` .
+  - Add SQL statements  like
+    `(UPDATE rewaya SET enabled='1', mediaType='1',data_latest_version = 1 WHERE rewayaId in (13,15,16,21,22,20,24,23,18,29);)`.
+  - Make sure that you set `(enabled,mediaType,data_latest_version)` fields as `(enabled=1 ,mediaType=1,data_latest_version =                   <Increment_Number>)`.
+  - Open project using visual studio 2015 then open  `'Mohafez\Mohafez.Windows\Package.appxmanifest'` from Packaging tab increment database     version:`Major:Minor:Build:Revision` .
+  - Also open  `'Mohafez\Mohafez.WindowsPhone\Package.appxmanifest'` from Packaging tab increment database version:     
+    `Major:Minor:Build:Revision` .
 
 ## Steps for updated recitations
 
